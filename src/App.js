@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-// generate random number
+
 let randomNumber = Math.floor(Math.random() * 20) + 1;
 
 
@@ -27,17 +27,16 @@ const Game = () => {
   };
   
   const submit = () => {
-    const userGuess = parseInt(value, setValue); // convert string to integer
-    // If the user clicks 'Guess' without entering a number, ask them to pick a number
+    const userGuess = parseInt(value, setValue); 
     setResults(<p className="alert alert-info">Pick a number</p>);
     setGuesses([...guesses, parseInt(value)]);
-    // If user input matches randomNumber, user guess is Correct!
+    
     if (userGuess === randomNumber) {
       setResults( <p className="alert alert-success">Correct number, YOU WON !</p>);
       document.getElementById("inputfield").disabled = true;
       setGameOver(true);
     }
-      // If user input is higher than randomNumber, user guess is 'Too high'
+      
     else if (userGuess > randomNumber)
     if (remainingAttempts > 1) {
       setResults(<p className="alert alert-warning">Too high, guess again</p>);
@@ -47,7 +46,7 @@ const Game = () => {
       setRemainingAttempts("0")
         document.getElementById("inputfield").disabled = true;
     }
-    // If user input is lower than randomNumber, user guess is 'Too low'
+    
     else if (userGuess < randomNumber)
     if (remainingAttempts > 1) {
       setResults(<p className="alert alert-warning">Too low, guess again</p>);
